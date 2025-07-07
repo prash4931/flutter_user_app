@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_user_app/core/endpoints.dart';
 import 'package:flutter_user_app/core/error_constants.dart';
 import 'package:flutter_user_app/features/user_list/models/user_data_model/user_data_model.dart';
@@ -17,8 +18,12 @@ class UsersRepository implements IUsersRepository {
 
     print('[UserListRepository] Fetching users: $url');
     try {
+      final apiKey = dotenv.env['API_KEY'];
+      if (apiKey == null) {
+        throw Exception('${ErrorConstants.somethingWentWrong} ${ErrorConstants.apiKeyError}');
+      }
       final response = await client
-          .get(url, headers: {'x-api-key': 'reqres-free-v1'})
+          .get(url, headers: {'x-api-key': dotenv.env['API_KEY'] ?? ''})
           .timeout(const Duration(seconds: 10));
       print('[UserListRepository] Response status: \n${response.statusCode}');
       print('[UserListRepository] Response body: \n${response.body}');
@@ -40,7 +45,7 @@ class UsersRepository implements IUsersRepository {
           // Append new users for next pages
           if (users != null && users.isNotEmpty) {
             await box.addAll(users);
-          } 
+          }
         }
         return users ?? [];
       } else {

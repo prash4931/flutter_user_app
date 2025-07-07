@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_user_app/features/user_list/models/user_data_model/user_data_model.dart';
 import 'package:flutter_user_app/features/user_list/providers/user_list_provider.dart';
 import 'package:flutter_user_app/features/user_list/screens/user_list_screen.dart';
@@ -10,6 +11,8 @@ void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(UserDataModelAdapter());
   await Hive.openBox<UserDataModel>('users');
+  await dotenv.load(fileName: ".env");
+
   runApp(
     MultiProvider(
       providers: [ChangeNotifierProvider(create: (_) => UserListProvider())],
