@@ -13,4 +13,7 @@ UserSupportModel _$UserSupportModelFromJson(Map<String, dynamic> json) =>
     );
 
 Map<String, dynamic> _$UserSupportModelToJson(UserSupportModel instance) =>
-    <String, dynamic>{'url': instance.url, 'text': instance.text};
+    <String, dynamic>{
+      'url': instance.url,
+      'text': instance.text,
+    };
