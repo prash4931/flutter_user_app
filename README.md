@@ -1,16 +1,14 @@
-# flutter_user_app
+# User App
 
-A new Flutter project.
+A User App made with Flutter & Dart
 
-## Getting Started
+#Snapshots
 
-This project is a starting point for a Flutter application.
+List Screen
 
-A few resources to get you started if this is your first Flutter project:
+![image](https://github.com/user-attachments/assets/56b5c73d-17d7-4a64-a8fd-38e917e6cd7f)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Details Screen
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![image](https://github.com/user-attachments/assets/c7687c0b-8b85-4181-8238-44dd37ebe30d)
+
